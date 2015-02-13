@@ -1,0 +1,31 @@
+# Define the HTTP settings
+httpClient:
+  port: 8060
+  adminPort: 8061
+
+# Define the client settings for connecting to upstream data services
+httpClient:
+  timeout: 60s # Timeout while connecting, reading, or writing (Heroku needs large value for spin-up)
+  timeToLive: 10m # Keep connections open
+  cookiesEnabled: true # Track cookies
+  gzipEnabled: true # Allow for gzipped request and response entities
+  minThreads: 1
+  maxThreads: 128 # Thread pool for JerseyClient's async requests
+
+logging:
+
+  level: WARN
+
+  # Logger-specific levels.
+  loggers:
+
+    # Set specific levels
+    "com.sun.jersey.api.client": DEBUG
+    "com.yammer": INFO
+    "it.siletto.ms": DEBUG
+
+#
+privateKeyFile:
+  /Users/Alessandro/workspace/rest-ms/auth-service/src/test/java/private.key
+publicKeyFile:
+  /Users/Alessandro/workspace/rest-ms/auth-service/src/test/java/public.key
