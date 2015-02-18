@@ -3,7 +3,6 @@ package it.siletto.ms.identity.resources;
 import io.dropwizard.jersey.caching.CacheControl;
 import it.siletto.ms.auth.RestrictedTo;
 import it.siletto.ms.auth.User;
-import it.siletto.ms.base.cors.Cors;
 import it.siletto.ms.base.resources.BaseResource;
 import it.siletto.ms.identity.IdentityServiceApp;
 import it.siletto.ms.identity.dto.UserResponseDTO;
@@ -30,7 +29,6 @@ public class UserIdentity extends BaseResource {
 	@Timed
 	@Path("login")
 	@CacheControl(noCache = true)
-	@Cors
 	public UserResponseDTO getUser(@RestrictedTo("service") User service, @QueryParam("username") String username, @QueryParam("password") String password) throws Exception {
 		
 		UserResponseDTO ret = null;
@@ -46,4 +44,5 @@ public class UserIdentity extends BaseResource {
 		
 	}
 
+	//TODO: getProfile
 }
