@@ -20,5 +20,4 @@ public class UserResponseDTO {
 		this.roles = roles;
 	}
 	
-	
 }

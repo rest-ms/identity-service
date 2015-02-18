@@ -5,6 +5,7 @@ import it.siletto.ms.auth.RestrictedTo;
 import it.siletto.ms.auth.User;
 import it.siletto.ms.base.cors.Cors;
 import it.siletto.ms.base.resources.BaseResource;
+import it.siletto.ms.identity.IdentityServiceApp;
 import it.siletto.ms.identity.dto.UserResponseDTO;
 import it.siletto.ms.identity.model.Identity;
 import it.siletto.ms.identity.service.IdentityDAO;
@@ -34,7 +35,7 @@ public class UserIdentity extends BaseResource {
 		
 		UserResponseDTO ret = null;
 
-		Identity user = identityDao.getUser(username, password);
+		Identity user = identityDao.getUser(username, password, IdentityServiceApp.getConfig().getRealm());
 		if(user!=null){
 			ret = new UserResponseDTO();
 			ret.setUsername(user.getUsername());
