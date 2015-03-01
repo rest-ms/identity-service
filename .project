@@ -5,7 +5,7 @@
   <projects>
     <project>identity-utils</project>
     <project>base-utils</project>
-    <project>auth-utils</project>
+    <project>auth-client</project>
   </projects>
   <buildSpec>
     <buildCommand>
